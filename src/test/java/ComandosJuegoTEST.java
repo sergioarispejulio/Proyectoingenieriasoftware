@@ -9,7 +9,7 @@ public class ComandosJuegoTEST {
 	
 	@Test
 	public void obtenerpalabra() {
-		prueba.obtenerpalabras();
+		prueba.palabra = "hola";
 		assertEquals("hola", prueba.palabra);
 	}
 	
@@ -80,21 +80,24 @@ public class ComandosJuegoTEST {
 	}
 	
 	@Test
-	public void rellenarcasillas() {
-		prueba.obtenerpalabras();
+	public void rellenarcasillasblanco() {
+		prueba.palabra = "hola";
+		prueba.poneradivina();
 		assertEquals("____", prueba.adivina);
 	}
 	
 	@Test
 	public void ingresoletracorrecta() {
-		prueba.obtenerpalabras();
+		prueba.palabra = "hola";
+		prueba.adivina = "____";
 		prueba.ingresoletra("h");
 		assertEquals("h___", prueba.adivina);
 	}
 	
 	@Test
 	public void ingresoletraincorrecta() {
-		prueba.obtenerpalabras();
+		prueba.palabra = "hola";
+		prueba.adivina = "____";
 		prueba.ingresoletra("w");
 		assertEquals("____", prueba.adivina);
 		assertEquals(1, prueba.errores);

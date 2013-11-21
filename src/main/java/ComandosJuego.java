@@ -120,29 +120,16 @@ public class ComandosJuego {
 		} catch (Exception e) {
 			System.err.println("Ocurrio un error: " + e.getMessage());
 		}
-		palabra = "hola";
-		adivina = "";
-		for (int i = 0; i < palabra.length(); i++) {
-			adivina += "_";
-		}
-		cantpista = 0;
 	}
 
-	public String obtenerUnaPalabraVacia(int pos) {
+	public void poneradivina() { //pone en blanco la palabra a adivinar
 		String res = "";
-		for (int i = 0; i < lista.get(pos).length(); i++) {
-			res = res + "_" + " ";
+		for (int i = 0; i < palabra.length(); i++) {
+			res += "_";
 		}
-		return res;
+		adivina = res;
 	}
 
-	public void jugar() {
-		adivina = obtenerUnaPalabraVacia(0);
-		while (verificarganador() != -1 || verificarganador() != 1) {
-			
-		}
-
-	}
 
 	public void agregarpalabra(String palabra)// agregar palabras al diccionario
 	{
@@ -178,6 +165,7 @@ public class ComandosJuego {
 			nivel = ni;
 			break;
 		}
+		errores = 0;
 	}
 
 }

@@ -6,38 +6,74 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+
 public class AhorcadoServlet extends HttpServlet {
 
+	ComandosJuego juego = new ComandosJuego();
+	
 	@Override
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		ComandosJuego ahorcado = new ComandosJuego();
-		ahorcado.obtenerpalabras();
 		PrintWriter out = response.getWriter();
+		if(request.getParameter("nivel") != null)
+		{
+			juego.seleccionarnivel(Integer.parseInt(request.getParameter("nivel")));
+			juego.palabra = "maria";
+			juego.adivina = "_____";
+		}
+		if(request.getParameter("letra") != null)
+		{
+			juego.ingresoletra(request.getParameter("letra"));
+		}
 		out.println("<html>");
+		
+		out.println("<head>");
+			if(juego.verificarganador() == -1)
+			{
+				out.println("<meta http-equiv=Refresh content=0;url=perder.html>");
+			}
+			if(juego.verificarganador() == 1)
+			{
+				out.println("<meta http-equiv=Refresh content=0;url=ganar.html>");
+			}
+		out.println("</head>");
+		
 		out.println("<body>");
-		out.println("<center>");
-		out.println("<br>");
-		response.getWriter().println(ahorcado.obtenerUnaPalabraVacia(0));
-		out.println("<br>");
-		out.println("<br>");
-		response.getWriter().println(
-				"Cantidad de errores: " + ahorcado.canterrores);
-		out.println("<br>");
-		out.println("<br>");
-		out.println("<Form action='AhorcadoServlet'>");
-		out.println("<Input type=text>");
-		out.println("<Input type=submit>");
-		out.println("</Form>");
-
-		out.println("</center>");
+			out.println("<center>");
+			out.println("<br>");
+			response.getWriter().println(juego.adivina);
+			out.println("<br>");
+			out.println("<br>");
+			response.getWriter().println(
+					"Cantidad de errores: " + juego.errores + " de " + juego.canterrores);
+			out.println("<br>");
+			out.println("<br>");
+			
+			out.println("<Form action='AhorcadoServlet'>");
+			out.println("<Input type=text name=letra>");
+			out.println("<Input type=submit>");
+			out.println("</Form>");
+			
+			out.println("<br>");
+			out.println("Cantidad de pistas disponibles: "+(3-juego.cantpista)+"<br>");
+			if(juego.cantpista < 3)
+			{
+				out.println("<Form action='AhorcadoServlet'>");
+				out.println("<Input type=hidden name=pista>");
+				out.println("<Input type=submit value=Ayuda>");
+				out.println("</Form>");
+			}
+			
+			if(request.getParameter("pista") != null)
+			{
+				out.println("<br>");
+				out.println("Ayuda: "+ juego.mostrarpista());
+			}
+			
+			out.println("</center>");
 		out.println("</body>");
 		out.println("</html>");
 
-		// while (ahorcado.verificarganador() != -1
-		// || ahorcado.verificarganador() != 1) {
-		// response.getWriter().println("<Form action='AhorcadoServlet'><input type=text id=letra><input type=submit id=submit></Form>");
-
-		// }
 	}
 }
