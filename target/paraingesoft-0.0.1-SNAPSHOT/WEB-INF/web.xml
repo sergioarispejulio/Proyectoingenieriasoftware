@@ -7,4 +7,12 @@
 		<servlet-name>AhorcadoServlet</servlet-name>
 		<url-pattern>AhorcadoServlet</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>AgregararchivoServlet</servlet-name>
+		<servlet-class>AgregararchivoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgregararchivoServlet</servlet-name>
+		<url-pattern>AgregararchivoServlet</url-pattern>
+	</servlet-mapping>
 </web-app>

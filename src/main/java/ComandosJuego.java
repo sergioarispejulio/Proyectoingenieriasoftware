@@ -3,10 +3,13 @@ import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
@@ -15,14 +18,14 @@ public class ComandosJuego {
 	public String adivina; // estado de lo que se esta adivinando
 	public int canterrores;// fácil son 6 errores, normal son 4, difícil son 2
 							// errores
-	public ArrayList<String> lista;
+	public ArrayList<Palabras> lista;
 	public int errores; // cantidad de errores
 	public int nivel; // 1 es fácil;2 es normal; 3 es difícil
 	public int cantpista; // cantidad de pistas usadas
 
 	public ComandosJuego() // constructor
 	{
-		lista = new ArrayList<String>();
+		lista = new ArrayList<Palabras>();
 	}
 
 	public String mostrarpista()// Da una pista y se aumenta la cantidad de
@@ -103,13 +106,11 @@ public class ComandosJuego {
 		return palabra.contains(letra);
 	}
 
-	public void obtenerpalabras()// cargar palabras del diccionario, selecciona
-									// una de esta y crea los espacios de
-									// adivina
+	public final void obtenerpalabras() throws IOException, ClassNotFoundException// cargar palabras del diccionario
 	{
 		lista.clear();
 		cantpista = 0;
-		try {
+		/*try {
 			String linea = "";
 			FileReader leerArchivo = new FileReader("Archivo.txt");
 			BufferedReader buffer = new BufferedReader(leerArchivo);
@@ -119,7 +120,25 @@ public class ComandosJuego {
 			buffer.close();
 		} catch (Exception e) {
 			System.err.println("Ocurrio un error: " + e.getMessage());
-		}
+		}*/
+		try
+	      {
+	         FileInputStream fileIn = new FileInputStream("diccionario.ser");
+	         ObjectInputStream in = new ObjectInputStream(fileIn);
+	         while(fileIn.available() > 0)
+	         {
+	        	 Palabras aux = new Palabras();
+	        	 aux = (Palabras) in.readObject();
+	        	 lista.add(aux);
+	         }
+	         in.close();
+	         fileIn.close();
+	         lista.remove(null);
+	      }catch(IOException i)
+	      {
+	         i.printStackTrace();
+	         return;
+	      }
 	}
 
 	public void poneradivina() { //pone en blanco la palabra a adivinar
@@ -131,10 +150,10 @@ public class ComandosJuego {
 	}
 
 
-	public void agregarpalabra(String palabra)// agregar palabras al diccionario
+	public final void agregarpalabra(Palabras palabra) throws IOException// agregar palabras al diccionario
 	{
 		lista.add(palabra);
-		try {
+		/*try {
 			File f = new File("Archivo.txt");
 			FileWriter w = new FileWriter(f);
 			BufferedWriter bw = new BufferedWriter(w);
@@ -145,7 +164,26 @@ public class ComandosJuego {
 			bw.close();
 		} catch (IOException e) {
 		}
-		;
+		;*/
+		try
+	      {
+	         FileOutputStream fileOut = new FileOutputStream("diccionario.ser");
+	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
+	         while(lista.isEmpty() == false)
+	         {
+	        	 Palabras e = lista.get(0);
+	        	 System.out.printf(e.palabra);
+	        	 out.writeObject(e);
+	        	 lista.remove(0);
+	         }
+	         out.close();
+	         fileOut.close();
+	         System.out.printf("Serialized data is saved in /tmp/employee.ser");
+	      }catch(IOException i)
+	      {
+	          i.printStackTrace();
+	      }
+		
 	}
 
 	public void seleccionarnivel(int ni)// Pone la cantidad de errores de

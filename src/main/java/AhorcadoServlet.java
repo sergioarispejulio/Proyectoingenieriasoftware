@@ -19,6 +19,12 @@ public class AhorcadoServlet extends HttpServlet {
 		if(request.getParameter("nivel") != null)
 		{
 			juego.seleccionarnivel(Integer.parseInt(request.getParameter("nivel")));
+			try {
+				juego.obtenerpalabras();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			juego.palabra = "maria";
 			juego.adivina = "_____";
 		}
@@ -51,7 +57,7 @@ public class AhorcadoServlet extends HttpServlet {
 			out.println("<br>");
 			
 			out.println("<Form action='AhorcadoServlet'>");
-			out.println("<Input type=text name=letra>");
+			out.println("<Input type=text name=letra maxlength=1>");
 			out.println("<Input type=submit>");
 			out.println("</Form>");
 			
@@ -70,7 +76,11 @@ public class AhorcadoServlet extends HttpServlet {
 				out.println("<br>");
 				out.println("Ayuda: "+ juego.mostrarpista());
 			}
-			
+			out.println("<br><br>");
+			for(int i =0; i < juego.lista.size(); i++)
+			{
+				out.println(juego.lista.get(i).palabra+"-"+juego.lista.get(i).dificultad+"-"+juego.lista.get(i).categoria+"/n");
+			}
 			out.println("</center>");
 		out.println("</body>");
 		out.println("</html>");

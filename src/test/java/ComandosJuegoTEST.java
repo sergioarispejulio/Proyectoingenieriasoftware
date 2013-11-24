@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.Test;
 
 
@@ -28,16 +30,20 @@ public class ComandosJuegoTEST {
 	}
 	
 	@Test
-	public void obtenerpalabradiccionario() {
+	public void obtenerpalabradiccionario() throws ClassNotFoundException, IOException {
 		prueba.obtenerpalabras();
 		assertEquals(false, prueba.lista.isEmpty());
 	}
 	
 	@Test
-	public void agregarpalabra() {
+	public void agregarpalabra() throws ClassNotFoundException, IOException {
 		prueba.obtenerpalabras();
-		int cant = prueba.lista.size() ;
-		prueba.agregarpalabra("hola");
+		int cant = prueba.lista.size();
+		Palabras e = new Palabras();
+		e.palabra = "hola";
+		e.dificultad = 1;
+		e.categoria = "Otros";
+		prueba.agregarpalabra(e);
 		prueba.obtenerpalabras();
 		assertEquals(cant+1, prueba.lista.size());
 	}
@@ -104,8 +110,8 @@ public class ComandosJuegoTEST {
 	}
 	
 	@Test
-	public void ingresoletraerronea() {
-		prueba.obtenerpalabras();
+	public void ingresoletraerronea() throws ClassNotFoundException, IOException {
+		prueba.palabra = "hola";
 		assertEquals(false, prueba.ingresoletra("@") );
 	}
 	
