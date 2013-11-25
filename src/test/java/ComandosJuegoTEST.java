@@ -1,12 +1,13 @@
+
 import static org.junit.Assert.*;
 
 import java.io.IOException;
 
 import org.junit.Test;
 
-
 public class ComandosJuegoTEST {
 
+	
 	ComandosJuego prueba = new ComandosJuego();
 	
 	@Test
@@ -151,5 +152,5 @@ public class ComandosJuegoTEST {
 		prueba.cantpista = 4;
 		assertEquals("", prueba.mostrarpista());
 	}
-	
+
 }

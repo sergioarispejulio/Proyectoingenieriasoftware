@@ -7,6 +7,7 @@
 		<servlet-name>AhorcadoServlet</servlet-name>
 		<url-pattern>AhorcadoServlet</url-pattern>
 	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>AgregararchivoServlet</servlet-name>
 		<servlet-class>AgregararchivoServlet</servlet-class>
@@ -14,5 +15,23 @@
 	<servlet-mapping>
 		<servlet-name>AgregararchivoServlet</servlet-name>
 		<url-pattern>AgregararchivoServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>LoginServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>IndexUsuarioServlet</servlet-name>
+		<servlet-class>IndexUsuarioServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IndexUsuarioServlet</servlet-name>
+		<url-pattern>IndexUsuarioServlet</url-pattern>
 	</servlet-mapping>
 </web-app>

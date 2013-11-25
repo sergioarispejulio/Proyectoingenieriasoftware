@@ -1,5 +1,4 @@
 
-
 public class Palabras implements java.io.Serializable{
 
 	public transient int SSN;

@@ -1,4 +1,9 @@
 AhorcadoServlet.class
+IndexUsuarioServlet.class
+ComandosUsuarioSingleton.class
 AgregararchivoServlet.class
+JuegoServlet.class
 Palabras.class
+LoginServlet.class
 ComandosJuego.class
+Usuario.class

@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
@@ -111,6 +110,17 @@ public class ComandosJuego {
 	{
 		lista.clear();
 		cantpista = 0;
+		/*try {
+			String linea = "";
+			FileReader leerArchivo = new FileReader("Archivo.txt");
+			BufferedReader buffer = new BufferedReader(leerArchivo);
+			while ((linea = buffer.readLine()) != null) {
+				lista.add(linea);
+			}
+			buffer.close();
+		} catch (Exception e) {
+			System.err.println("Ocurrio un error: " + e.getMessage());
+		}*/
 		try
 	      {
 	         FileInputStream fileIn = new FileInputStream("diccionario.ser");
@@ -143,6 +153,18 @@ public class ComandosJuego {
 	public final void agregarpalabra(Palabras palabra) throws IOException// agregar palabras al diccionario
 	{
 		lista.add(palabra);
+		/*try {
+			File f = new File("Archivo.txt");
+			FileWriter w = new FileWriter(f);
+			BufferedWriter bw = new BufferedWriter(w);
+			for (int i = 0; i < lista.size(); i++) {
+				bw.write(lista.get(i));
+				bw.newLine();
+			}
+			bw.close();
+		} catch (IOException e) {
+		}
+		;*/
 		try
 	      {
 	         FileOutputStream fileOut = new FileOutputStream("diccionario.ser");
@@ -156,6 +178,7 @@ public class ComandosJuego {
 	         }
 	         out.close();
 	         fileOut.close();
+	         System.out.printf("Serialized data is saved in /tmp/employee.ser");
 	      }catch(IOException i)
 	      {
 	          i.printStackTrace();
