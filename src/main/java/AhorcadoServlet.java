@@ -78,10 +78,6 @@ public class AhorcadoServlet extends HttpServlet {
 				out.println("Ayuda: "+ juego.mostrarpista());
 			}
 			out.println("<br><br>");
-			for(int i =0; i < juego.lista.size(); i++)
-			{
-				out.println(juego.lista.get(i).palabra+"-"+juego.lista.get(i).dificultad+"-"+juego.lista.get(i).categoria+"/n");
-			}
 			out.println("</center>");
 		out.println("</body>");
 		out.println("</html>");

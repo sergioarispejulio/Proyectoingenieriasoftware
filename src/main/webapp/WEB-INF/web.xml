@@ -34,4 +34,13 @@
 		<servlet-name>IndexUsuarioServlet</servlet-name>
 		<url-pattern>IndexUsuarioServlet</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>RegistroServlet</servlet-name>
+		<servlet-class>RegistroServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegistroServlet</servlet-name>
+		<url-pattern>RegistroServlet</url-pattern>
+	</servlet-mapping>
 </web-app>
