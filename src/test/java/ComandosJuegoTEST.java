@@ -2,6 +2,7 @@
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.junit.Test;
 
@@ -153,4 +154,52 @@ public class ComandosJuegoTEST {
 		assertEquals("", prueba.mostrarpista());
 	}
 
+	@Test
+	public void seleccionarpalabras() {
+		ArrayList<Palabras> nue = new ArrayList<Palabras>();
+		ArrayList<Palabras> actu = new ArrayList<Palabras>();
+		Palabras pa = new Palabras();
+		Palabras pa1 = new Palabras();
+		Palabras pa2 = new Palabras();
+		pa.categoria = "Otros";
+		pa.palabra = "hola";
+		pa.dificultad = 1;
+		nue.add(pa);
+		actu.add(pa);
+		pa1.categoria = "Otros";
+		pa1.palabra = "alabarda";
+		pa1.dificultad = 1;
+		nue.add(pa1);
+		actu.add(pa1);
+		pa2.categoria = "Otros";
+		pa2.palabra = "holaasemeun";
+		pa2.dificultad = 2;
+		nue.add(pa2);
+		prueba.lista = nue;
+		prueba.obtenerpalabrascriterionivel(1, "Otros");
+		assertEquals(actu, prueba.lista);
+	}
+	
+	@Test
+	public void sacaraleatorio() {
+		ArrayList<Palabras> nue = new ArrayList<Palabras>();
+		ArrayList<Palabras> actu = new ArrayList<Palabras>();
+		Palabras pa = new Palabras();
+		Palabras pa1 = new Palabras();
+		pa.categoria = "Otros";
+		pa.palabra = "hola";
+		pa.dificultad = 1;
+		actu.add(pa);
+		nue.add(pa);
+		pa1.categoria = "Otros";
+		pa1.palabra = "alabarda";
+		pa1.dificultad = 1;
+		nue.add(pa1);
+		actu.add(pa1);
+		prueba.lista = nue;
+		prueba.seleccionarpalabra();
+		assertEquals(true, actu.contains(prueba.seleccionado));
+	}
+	
+	
 }

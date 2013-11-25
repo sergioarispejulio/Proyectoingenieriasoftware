@@ -1,9 +1,12 @@
 AhorcadoServlet.class
+TablapuntageServet.class
 IndexUsuarioServlet.class
 ComandosUsuarioSingleton.class
 RegistroServlet.class
 AgregararchivoServlet.class
+LogoffServlet.class
 JuegoServlet.class
+TerminarServlet.class
 Palabras.class
 LoginServlet.class
 ComandosJuego.class

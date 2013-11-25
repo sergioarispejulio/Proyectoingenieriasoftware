@@ -21,7 +21,8 @@ public class ComandosUsuarioSingleton {
 	
 	 private static ComandosUsuarioSingleton singleton=null;
 	 public static Usuario actual = null;
-	 
+	 public static int tot;
+	 public static int nivel;
 	 private ComandosUsuarioSingleton(){}
 
 	 public static ComandosUsuarioSingleton getSingleton(){
@@ -225,6 +226,34 @@ public class ComandosUsuarioSingleton {
 		 }
 		 resultado.remove(null);
 		 return resultado;
+	 }
+	 
+	 public void actualizarusuario(Usuario nuevo, Usuario antiguo) throws IOException, ClassNotFoundException
+	 {
+		 ArrayList<Usuario> lista = obtenerusuarios();
+		 lista.add(nuevo);
+		 try
+	      {
+	         FileOutputStream fileOut = new FileOutputStream("usuarios.ser");
+	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
+	         while(lista.isEmpty() == false)
+	         {
+	        	 Usuario e = lista.get(0);
+	        	 if(e.ci == antiguo.ci )
+	        	 {
+	        		 e = nuevo;
+	        	 }
+	        	 out.writeObject(e);
+	        	 lista.remove(0);
+	         }
+	         out.close();
+	         fileOut.close();
+	         System.out.printf("Serialized data is saved in /tmp/employee.ser");
+	      }catch(IOException i)
+	      {
+	          i.printStackTrace();
+	      }
+		 
 	 }
 	 
 }

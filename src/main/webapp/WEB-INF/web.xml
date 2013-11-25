@@ -43,4 +43,31 @@
 		<servlet-name>RegistroServlet</servlet-name>
 		<url-pattern>RegistroServlet</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>TerminarServlet</servlet-name>
+		<servlet-class>TerminarServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TerminarServlet</servlet-name>
+		<url-pattern>TerminarServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>LogoffServlet</servlet-name>
+		<servlet-class>LogoffServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogoffServlet</servlet-name>
+		<url-pattern>LogoffServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>TablapuntageServet</servlet-name>
+		<servlet-class>TablapuntageServet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TablapuntageServet</servlet-name>
+		<url-pattern>TablapuntageServet</url-pattern>
+	</servlet-mapping>
 </web-app>

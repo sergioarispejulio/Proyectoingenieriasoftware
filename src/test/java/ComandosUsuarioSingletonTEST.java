@@ -10,6 +10,37 @@ public class ComandosUsuarioSingletonTEST {
 ComandosUsuarioSingleton singleton = ComandosUsuarioSingleton.getSingleton(); 
 	
 	@Test
+	public void registrarUsuarioadmi() throws Exception {
+		Usuario nuevo = new Usuario();
+		ArrayList<Usuario> lista = singleton.obtenerusuarios();
+		int cant = lista.size();
+		nuevo.ci = 123;
+		nuevo.login = "pedro";
+		nuevo.pais = "narnia";
+		nuevo.admi = true;
+		nuevo.pass = "prueba";
+		singleton.registrar(nuevo);
+		lista = singleton.obtenerusuarios();
+		assertEquals(cant+1, lista.size());
+	}
+
+	@Test
+	public void registrarUsuario() throws Exception {
+		Usuario nuevo = new Usuario();
+		ArrayList<Usuario> lista = singleton.obtenerusuarios();
+		int cant = lista.size();
+		nuevo.ci = 123;
+		nuevo.login = "Pedro";
+		nuevo.pais = "narnia";
+		nuevo.admi = false;
+		nuevo.pass = "prueba";
+		singleton.registrar(nuevo);
+		lista = singleton.obtenerusuarios();
+		assertEquals(cant+1, lista.size());
+	}
+
+
+	@Test
 	public void ordenarmenordificil() throws Exception {
 		Usuario actu1 = new Usuario();
 		Usuario actu2 = new Usuario();
@@ -196,33 +227,26 @@ ComandosUsuarioSingleton singleton = ComandosUsuarioSingleton.getSingleton();
 	}
 	
 	@Test
-	public void registrarUsuarioadmi() throws Exception {
+	public void actualizarUsuario() throws Exception {
 		Usuario nuevo = new Usuario();
+		Usuario nuevo1 = new Usuario();
 		ArrayList<Usuario> lista = singleton.obtenerusuarios();
-		int cant = lista.size();
 		nuevo.ci = 123;
-		nuevo.login = "Pedro";
-		nuevo.pais = "narnia";
-		nuevo.admi = true;
-		nuevo.pass = "prueba";
-		singleton.registrar(nuevo);
-		lista = singleton.obtenerusuarios();
-		assertEquals(cant+1, lista.size());
-	}
-	
-	@Test
-	public void registrarUsuario() throws Exception {
-		Usuario nuevo = new Usuario();
-		ArrayList<Usuario> lista = singleton.obtenerusuarios();
-		int cant = lista.size();
-		nuevo.ci = 123;
-		nuevo.login = "pedro";
+		nuevo.login = "ana";
 		nuevo.pais = "narnia";
 		nuevo.admi = false;
 		nuevo.pass = "prueba";
 		singleton.registrar(nuevo);
+		nuevo1.login = "ana1";
+		nuevo1.pais = "narnia";
+		nuevo1.admi = false;
+		nuevo1.pass = "prueba1";
+		singleton.actualizarusuario(nuevo1, nuevo);
 		lista = singleton.obtenerusuarios();
-		assertEquals(cant+1, lista.size());
+		int cant = lista.size();
+		assertEquals(nuevo1.ci, lista.get(cant-1).ci);
+		assertEquals(nuevo1.login, lista.get(cant-1).login);
+		assertEquals(nuevo1.nombre, lista.get(cant-1).nombre);
 	}
 
 }

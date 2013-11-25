@@ -15,28 +15,29 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class ComandosJuego {
+	public Palabras seleccionado;
 	public String palabra;// palabra a adivinar
 	public String adivina; // estado de lo que se esta adivinando
-	public int canterrores;// fácil son 6 errores, normal son 4, difícil son 2
-							// errores
+	public int canterrores;// fácil son 6 errores, normal son 4, difícil son 2 errores
 	public ArrayList<Palabras> lista;
 	public int errores; // cantidad de errores
 	public int nivel; // 1 es fácil;2 es normal; 3 es difícil
 	public int cantpista; // cantidad de pistas usadas
+	public int puntage;
 
 	public ComandosJuego() // constructor
 	{
 		lista = new ArrayList<Palabras>();
 	}
 
-	public String mostrarpista()// Da una pista y se aumenta la cantidad de
-								// pistas usadas, pero si son mas de 3 pistas,
-								// devuelve vacio
+	public String mostrarpista()// Da una pista y se aumenta la cantidad de pistas usadas, pero si son mas de 3 pistas, devuelve vacio
 	{
 		String aux = "";
 		char ex;
-		if (cantpista <= 3) {
-			for (int i = 0; i < palabra.length(); i++) {
+		if (cantpista <= 3) 
+		{
+			for (int i = 0; i < palabra.length(); i++) 
+			{
 				ex = adivina.charAt(i);
 				if (ex == '_') {
 					aux += palabra.charAt(i);
@@ -44,6 +45,7 @@ public class ComandosJuego {
 					break;
 				}
 			}
+			puntage = puntage-5;
 		}
 		return aux;
 	}
@@ -64,6 +66,7 @@ public class ComandosJuego {
 		if (letracorrecta(letra)) {
 			if (verificarletra(letra)) {
 				rellenar(letra);
+				puntage = puntage + 10;
 				return true;
 			} else {
 				errores++;
@@ -130,6 +133,21 @@ public class ComandosJuego {
 	         return;
 	      }
 	}
+	
+	public final void obtenerpalabrascriterionivel(int nivel, String cate)
+	{
+		ArrayList<Palabras> nue = new ArrayList<Palabras>();
+		Palabras aux = new Palabras();
+		for(int i = 0; i< lista.size(); i++)
+		{
+			aux = lista.get(i);
+			if(aux.dificultad == nivel && aux.categoria.equals(cate))
+			{
+				nue.add(aux);
+			}
+		}
+		lista = nue;
+	}
 
 	public void poneradivina() { //pone en blanco la palabra a adivinar
 		String res = "";
@@ -139,9 +157,19 @@ public class ComandosJuego {
 		adivina = res;
 	}
 
+	public void seleccionarpalabra()
+	{
+		int pos = (int) (Math.random()*lista.size());
+		seleccionado = lista.get(pos);
+		palabra= lista.get(pos).palabra;
+		lista.remove(seleccionado);
+		lista.remove(null);
+	}
+	
 
 	public final void agregarpalabra(Palabras palabra) throws IOException// agregar palabras al diccionario
 	{
+		palabra.palabra = palabra.palabra.toLowerCase();
 		lista.add(palabra);
 		try
 	      {
