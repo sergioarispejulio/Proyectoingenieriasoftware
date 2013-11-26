@@ -10,4 +10,10 @@ ComandosUsuarioSingleton.class
 IndexUsuarioServlet.class
 JuegoServlet.class
 TerminarServlet.class
+<<<<<<< HEAD
 LoginServlet.class
+=======
+EditarServlet.class
+LoginServlet.class
+ReemplazarServlet.class
+>>>>>>> 09e368946eed7b3268f90a6964f35645a976bf0d

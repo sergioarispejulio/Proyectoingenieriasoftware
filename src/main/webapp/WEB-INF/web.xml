@@ -70,4 +70,22 @@
 		<servlet-name>TablapuntageServet</servlet-name>
 		<url-pattern>TablapuntageServet</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>EditarServlet</servlet-name>
+		<servlet-class>EditarServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EditarServlet</servlet-name>
+		<url-pattern>EditarServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ReemplazarServlet</servlet-name>
+		<servlet-class>ReemplazarServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReemplazarServlet</servlet-name>
+		<url-pattern>ReemplazarServlet</url-pattern>
+	</servlet-mapping>
 </web-app>
