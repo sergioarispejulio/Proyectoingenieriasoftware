@@ -80,6 +80,8 @@ public class AhorcadoServlet extends HttpServlet {
 				singleton.nivel = juego.nivel;
 				out.println("<meta http-equiv=Refresh content=0;url=TerminarServlet>");
 			}
+			out.println(juego.dibujarmunheco());
+			
 		out.println("</head>");
 		
 		out.println("<body>");

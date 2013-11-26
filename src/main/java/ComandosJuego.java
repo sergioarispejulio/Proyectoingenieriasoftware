@@ -210,5 +210,34 @@ public class ComandosJuego {
 		}
 		errores = 0;
 	}
+	
+	public String dibujarmunheco() {
+		String retornar = "";
+		switch (this.errores) {
+		case 0:
+			retornar = " ";
+			break;
+		case 1:
+			retornar = " " + "O" + "<br>";
+			break;
+		case 2:
+			retornar = " " + "O" + "<br>" + "/";
+			break;
+		case 3:
+			retornar = " " + "O" + "<br>" + "/" + "|";
+			break;
+		case 4:
+			retornar = " " + "O" + "<br>" + "/" + "|" + "\\";
+			break;
+		case 5:
+			retornar = " " + "O" + "<br>" + "/" + "|" + "\\" + "<br>" + "/";
+			break;
+		case 6:
+			retornar = " " + "O" + "<br>" + "/" + "|" + "\\" + "<br>" + "/"
+					+ " " + "\\";
+			break;
+		}
+		return retornar;
+	}
 
 }
