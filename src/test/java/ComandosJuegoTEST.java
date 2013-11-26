@@ -201,5 +201,23 @@ public class ComandosJuegoTEST {
 		assertEquals(true, actu.contains(prueba.seleccionado));
 	}
 	
+	@Test
+	public void dibujarfacil() {
+		prueba.errores = 3;
+		prueba.nivel = 1;
+		assertEquals(" " + "O" + "<br>" + "/" + "|", prueba.dibujarmunheco());
+	}
 	
+	@Test
+	public void dibujarnormal() {
+		prueba.errores = 3;
+		prueba.nivel = 2;
+		assertEquals(" " + "O" + "<br>" + "/" + "|" + "\\" + "<br>" + "/", prueba.dibujarmunheco());
+	}
+	@Test
+	public void dibujardificil() {
+		prueba.errores = 1;
+		prueba.nivel = 3;
+		assertEquals(" " + "O" + "<br>" + "/" + "|", prueba.dibujarmunheco());
+	}
 }
