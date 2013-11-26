@@ -37,6 +37,10 @@ public class IndexUsuarioServlet extends HttpServlet{
 	        out.println("<input type=submit id=facil value=VerPuntagesGenerales>");
 	        out.println("</Form>");
 	        
+	        out.println("<Form action=EditarServlet>");
+	        out.println("<input type=submit id=facil value=Editartusdatos>");
+	        out.println("</Form>");
+	        
 	        out.println("</Center>");
 	        out.println("<a href=LogoffServlet>Salir</a>");
 		out.println("</body>");
