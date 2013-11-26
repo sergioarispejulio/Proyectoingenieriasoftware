@@ -1,38 +1,5 @@
-<html>
-<head>
-<title>JuegoAhorcado: Nivel Facil</title>
-<div id="barra_menu">
-<div class="links_barra">
-
-<ul>
-<li> <a href="/"> Inicio </a> </li>
-<li> <a href="LogoffServlet"> Salir </a> </li>
-</ul>
-
-</div>
-</div>
-</head>
-<body>
-                <h1>Nivel Facil</h1>
-        <Center>
-                <h1>Info</h1>
-                El nivel facil cuenta con palabras sencillas<br>
-                para que Ud. aprenda a jugar y adivinar todas <br>
-                las palabras.<br><br>
-                <form action="AhorcadoServlet">
-                	<select name="cate">
-               			<option value="Otros">Otros</option>
-               		</select>
-               		<input type="hidden" value=1 name="nivel">
-                	<input type=submit value="Jugar">
-                </form>
-                
-        </Center>
-</body>
-</html>
-
 <style type="text/css">
-	body
+body
 	{
 		margin: 0px;
 		padding: 250px;

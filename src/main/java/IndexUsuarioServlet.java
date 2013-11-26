@@ -18,7 +18,17 @@ public class IndexUsuarioServlet extends HttpServlet{
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
 		out.println("<head>");
-		out.println("</head>");
+		out.println("<link rel="+"stylesheet"+"type="+"text/css");
+		out.println("href="+request.getContextPath()+"/styles/application.css/>");
+		out.println("<div id=barra_menu>");
+		out.println("<div class=links_barra>");
+		out.println("<ul>");
+		out.println("<li> <a href=/> Inicio </a> </li>");
+		out.println("<li> <a href=LogoffServlet> Salir </a> </li>");
+		out.println("</ul>");
+		out.println("</div>");
+		out.println("</div>");
+				out.println("</head>");
 		out.println("<body>");
 			out.println("<h1>BIENVENIDO AL JUEGO AHORCADO</h1> <br><br><br>");
 			out.println("<Center>");
@@ -41,6 +51,7 @@ public class IndexUsuarioServlet extends HttpServlet{
 	        out.println("<a href=LogoffServlet>Salir</a>");
 		out.println("</body>");
 		out.println("</html>");
+
 	}
 
 }
