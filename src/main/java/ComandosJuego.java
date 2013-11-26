@@ -213,28 +213,69 @@ public class ComandosJuego {
 	
 	public String dibujarmunheco() {
 		String retornar = "";
-		switch (this.errores) {
-		case 0:
-			retornar = " ";
-			break;
+		switch (nivel)
+		{
 		case 1:
-			retornar = " " + "O" + "<br>";
+			switch (errores) {
+			case 0:
+				retornar = " ";
+				break;
+			case 1:
+				retornar = " " + "O" + "<br>";
+				break;
+			case 2:
+				retornar = " " + "O" + "<br>" + "/";
+				break;
+			case 3:
+				retornar = " " + "O" + "<br>" + "/" + "|";
+				break;
+			case 4:
+				retornar = " " + "O" + "<br>" + "/" + "|" + "\\";
+				break;
+			case 5:
+				retornar = " " + "O" + "<br>" + "/" + "|" + "\\" + "<br>" + "/";
+				break;
+			case 6:
+				retornar = " " + "O" + "<br>" + "/" + "|" + "\\" + "<br>" + "/"
+						+ " " + "\\";
+				break;
+			}
 			break;
+			
 		case 2:
-			retornar = " " + "O" + "<br>" + "/";
+			switch (errores) {
+			case 0:
+				retornar = " ";
+				break;
+			case 1:
+				retornar = " " + "O" + "<br>" + "/" + "|";
+				break;
+			case 2:
+				retornar = " " + "O" + "<br>" + "/" + "|" + "\\";
+				break;
+			case 3:
+				retornar = " " + "O" + "<br>" + "/" + "|" + "\\" + "<br>" + "/";
+				break;
+			case 4:
+				retornar = " " + "O" + "<br>" + "/" + "|" + "\\" + "<br>" + "/"
+						+ " " + "\\";
+				break;
+			}
 			break;
+			
 		case 3:
-			retornar = " " + "O" + "<br>" + "/" + "|";
-			break;
-		case 4:
-			retornar = " " + "O" + "<br>" + "/" + "|" + "\\";
-			break;
-		case 5:
-			retornar = " " + "O" + "<br>" + "/" + "|" + "\\" + "<br>" + "/";
-			break;
-		case 6:
-			retornar = " " + "O" + "<br>" + "/" + "|" + "\\" + "<br>" + "/"
-					+ " " + "\\";
+			switch (errores) {
+			case 0:
+				retornar = " ";
+				break;
+			case 1:
+				retornar = " " + "O" + "<br>" + "/" + "|";
+				break;
+			case 2:
+				retornar = " " + "O" + "<br>" + "/" + "|" + "\\" + "<br>" + "/"
+						+ " " + "\\";
+				break;
+			}
 			break;
 		}
 		return retornar;
