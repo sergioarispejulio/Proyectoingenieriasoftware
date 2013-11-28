@@ -163,7 +163,7 @@ public class JuegoTEST {
 		assertEquals(actu, prueba.lista);
 	}
 */
-	@Test
+	/*@Test
 	public void sacaraleatorio() {
 		ArrayList<Palabras> nue = new ArrayList<Palabras>();
 		ArrayList<Palabras> actu = new ArrayList<Palabras>();
@@ -182,7 +182,7 @@ public class JuegoTEST {
 		prueba.lista = nue;
 		prueba.seleccionarpalabra();
 		assertEquals(true, actu.contains(prueba.seleccionado));
-	}
+	}*/
 	
 	@Test
 	public void dibujarMunhecoNivelFacil() {

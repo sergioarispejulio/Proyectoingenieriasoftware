@@ -139,14 +139,14 @@ public class Juego {
 		adivina = res;
 	}
 
-	public void seleccionarpalabra()
+	/*public void seleccionarpalabra()
 	{
 		int pos = (int) (Math.random()*lista.size());
 		seleccionado = lista.get(pos);
 		palabra= lista.get(pos).palabra;
 		lista.remove(seleccionado);
 		lista.remove(null);
-	}
+	}*/
 
 	public void seleccionarNivel(int niv)
 	{
