@@ -6,8 +6,8 @@ Palabras.class
 ComandosJuego.class
 Usuario.class
 TablapuntageServet.class
-ComandosUsuarioSingleton.class
 IndexUsuarioServlet.class
+ComandosUsuarioSingleton.class
 JuegoServlet.class
 TerminarServlet.class
 EditarServlet.class

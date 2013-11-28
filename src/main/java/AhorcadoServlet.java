@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class AhorcadoServlet extends HttpServlet {
 
-	ComandosJuego juego = new ComandosJuego();
+	Juego juego = new Juego();
 	ComandosUsuarioSingleton singleton = ComandosUsuarioSingleton.getSingleton(); 
 	
 	@Override
@@ -21,7 +21,7 @@ public class AhorcadoServlet extends HttpServlet {
 		boolean prueba=false;
 		if(request.getParameter("nivel") != null)
 		{
-			juego.seleccionarnivel(Integer.parseInt(request.getParameter("nivel")));
+			juego.ponerCantidadErroresDeAcuerdoNivel(Integer.parseInt(request.getParameter("nivel")));
 			try {
 				juego.obtenerpalabras();
 			} catch (ClassNotFoundException e) {
@@ -81,7 +81,7 @@ public class AhorcadoServlet extends HttpServlet {
 				out.println("<meta http-equiv=Refresh content=0;url=TerminarServlet>");
 			}
 			
-			out.println(juego.dibujarmunheco());
+			out.println(juego.dibujarMunheco());
 			
 		out.println("</head>");
 		

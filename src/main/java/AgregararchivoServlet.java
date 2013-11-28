@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class AgregararchivoServlet extends HttpServlet {
-	Palabras nuevo = new Palabras();
-	ComandosJuego juego = new ComandosJuego();
+	Palabra nuevo = new Palabra();
+	Juego juego = new Juego();
 	
 	@Override
 	protected void service(HttpServletRequest request,

@@ -22,6 +22,18 @@ public class Palabra implements java.io.Serializable
 		this.categoria = "";
 	}
 	
+	public String dibujarPalabraConEspacios()
+	{
+		String palabraAdivina = "";
+		for(int i=0; i<this.palabra.length(); i++)
+		{
+			palabraAdivina += "_"+" ";
+		}
+		return palabraAdivina;
+	}
+
+	// GETS
+	
 	public String getPalabra()
 	{
 		return palabra;
@@ -36,6 +48,8 @@ public class Palabra implements java.io.Serializable
 	{
 		return dificultad;
 	}
+	
+	// SETS
 	
 	public String getCategoria()
 	{
@@ -60,15 +74,5 @@ public class Palabra implements java.io.Serializable
 	public void setCategoria(String nuevaCategoria)
 	{
 		this.categoria = nuevaCategoria;
-	}
-	
-	public String dibujarPalabraConEspacios()
-	{
-		String palabraAdivina = "";
-		for(int i=0; i<this.palabra.length(); i++)
-		{
-			palabraAdivina += "_"+" ";
-		}
-		return palabraAdivina;
 	}
 }
