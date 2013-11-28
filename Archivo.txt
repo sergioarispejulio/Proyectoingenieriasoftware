@@ -1,0 +1,11 @@
+Pedro
+Juan
+hola
+hola
+<<<<<<< HEAD
+hola
+hola
+hola
+hola
+=======
+>>>>>>> ecdd6355740c80e3629371db7254f6c2ddfa3cab
