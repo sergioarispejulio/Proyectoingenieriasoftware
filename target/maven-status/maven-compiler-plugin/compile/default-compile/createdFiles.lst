@@ -3,12 +3,9 @@ RegistroServlet.class
 AgregararchivoServlet.class
 LogoffServlet.class
 Palabras.class
-Palabra.class
 ComandosJuego.class
-Diccionario.class
 Usuario.class
 TablapuntageServet.class
-Juego.class
 IndexUsuarioServlet.class
 ComandosUsuarioSingleton.class
 JuegoServlet.class
